@@ -1,10 +1,10 @@
-// Language state
-let currentLanguage = 'english';
-
 // First Aid Advice Data
+let currentLanguage = 'en'; // Default language: 'en' for English, 'lg' for Luganda
+let currentEmergency = null; // To track the currently displayed emergency
+
 const firstAidAdvice = {
     'menstrual-cramps': {
-        english: {
+        en: {
             title: 'Menstrual Cramps Relief',
             content: `
                 <ol>
@@ -17,7 +17,7 @@ const firstAidAdvice = {
                 </ol>
             `
         },
-        luganda: {
+        lg: {
             title: 'Okulwanyisa Obulumi nga oli munsonga',
             content: `
                 <ol>
@@ -32,7 +32,7 @@ const firstAidAdvice = {
         }
     },
     'burn': {
-        english: {
+        en: {
             title: 'Burn Treatment',
             content: `
                 <ol>
@@ -44,7 +44,7 @@ const firstAidAdvice = {
                 </ol>
             `
         },
-        luganda: {
+        lg: {
             title: 'Okulwanyisa Okwookyebwa Omuliro',
             content: `
                 <ol>
@@ -58,7 +58,7 @@ const firstAidAdvice = {
         }
     },
     'scald': {
-        english: {
+        en: {
             title: 'Scald Treatment',
             content: `
                 <ol>
@@ -70,7 +70,7 @@ const firstAidAdvice = {
                 </ol>
             `
         },
-        luganda: {
+        lg: {
             title: 'Okulwanyisa Okukyama okuva ku Mazzi Agabuguumilira',
             content: `
                 <ol>
@@ -84,7 +84,7 @@ const firstAidAdvice = {
         }
     },
     'asthma': {
-        english: {
+        en: {
             title: 'Asthma Attack Management',
             content: `
                 <ol>
@@ -96,7 +96,7 @@ const firstAidAdvice = {
                 </ol>
             `
         },
-        luganda: {
+        lg: {
             title: 'Okulwanyisa Okuluma kw\'Omwoyo',
             content: `
                 <ol>
@@ -110,7 +110,7 @@ const firstAidAdvice = {
         }
     },
     'hypotension': {
-        english: {
+        en: {
             title: 'Low Blood Pressure (Hypotension) Management',
             content: `
                 <ol>
@@ -123,7 +123,7 @@ const firstAidAdvice = {
                 </ol>
             `
         },
-        luganda: {
+        lg: {
             title: 'Okulwanyisa Omusujja Ogw\'Omusaayi Ogutono',
             content: `
                 <ol>
@@ -138,7 +138,7 @@ const firstAidAdvice = {
         }
     },
     'diabetes': {
-        english: {
+        en: {
             title: 'Diabetic Emergency Response',
             content: `
                 <ol>
@@ -150,7 +150,7 @@ const firstAidAdvice = {
                 </ol>
             `
         },
-        luganda: {
+        lg: {
             title: 'Okulwanyisa Obulwadde bw\'Omusujja Ogw\'Omusaayi Ogw\'Okukula',
             content: `
                 <ol>
@@ -164,7 +164,7 @@ const firstAidAdvice = {
         }
     },
     'cut': {
-        english: {
+        en: {
             title: 'Cut and Wound Treatment',
             content: `
                 <ol>
@@ -176,7 +176,7 @@ const firstAidAdvice = {
                 </ol>
             `
         },
-        luganda: {
+        lg: {
             title: 'Okulwanyisa Okusasulwa n\'Okulonda',
             content: `
                 <ol>
@@ -190,7 +190,7 @@ const firstAidAdvice = {
         }
     },
     'dog-bite': {
-        english: {
+        en: {
             title: 'Dog Bite First Aid',
             content: `
                 <ol>
@@ -202,7 +202,7 @@ const firstAidAdvice = {
                 </ol>
             `
         },
-        luganda: {
+        lg: {
             title: 'Okulwanyisa Okuluma kw\'Embwa',
             content: `
                 <ol>
@@ -216,7 +216,7 @@ const firstAidAdvice = {
         }
     },
     'choking': {
-        english: {
+        en: {
             title: 'Choking First Aid',
             content: `
                 <ol>
@@ -228,7 +228,7 @@ const firstAidAdvice = {
                 </ol>
             `
         },
-        luganda: {
+        lg: {
             title: 'Okulwanyisa Okugwa mu Kkomo',
             content: `
                 <ol>
@@ -242,7 +242,7 @@ const firstAidAdvice = {
         }
     },
     'heart-attack': {
-        english: {
+        en: {
             title: 'Heart Attack First Aid',
             content: `
                 <ol>
@@ -254,7 +254,7 @@ const firstAidAdvice = {
                 </ol>
             `
         },
-        luganda: {
+        lg: {
             title: 'Okulwanyisa Okuluma kw\'Omwoyo',
             content: `
                 <ol>
@@ -268,7 +268,7 @@ const firstAidAdvice = {
         }
     },
     'stroke': {
-        english: {
+        en: {
             title: 'Stroke First Aid',
             content: `
                 <ol>
@@ -280,7 +280,7 @@ const firstAidAdvice = {
                 </ol>
             `
         },
-        luganda: {
+        lg: {
             title: 'Okulwanyisa Okuluma kw\'Omutwe',
             content: `
                 <ol>
@@ -294,7 +294,7 @@ const firstAidAdvice = {
         }
     },
     'fracture': {
-        english: {
+        en: {
             title: 'Fracture First Aid',
             content: `
                 <ol>
@@ -306,7 +306,7 @@ const firstAidAdvice = {
                 </ol>
             `
         },
-        luganda: {
+        lg: {
             title: 'Okulwanyisa Okusasulwa kw\'Egumba',
             content: `
                 <ol>
@@ -320,7 +320,7 @@ const firstAidAdvice = {
         }
     },
     'severe-bleeding': {
-        english: {
+        en: {
             title: 'Severe Bleeding First Aid',
             content: `
                 <ol>
@@ -332,7 +332,7 @@ const firstAidAdvice = {
                 </ol>
             `
         },
-        luganda: {
+        lg: {
             title: 'Okulwanyisa Omusaayi Ogw\'Omunda Ogw\'Okukulukuta',
             content: `
                 <ol>
@@ -346,7 +346,7 @@ const firstAidAdvice = {
         }
     },
     'allergic-reaction': {
-        english: {
+        en: {
             title: 'Severe Allergic Reaction (Anaphylaxis) First Aid',
             content: `
                 <ol>
@@ -358,7 +358,7 @@ const firstAidAdvice = {
                 </ol>
             `
         },
-        luganda: {
+        lg: {
             title: 'Okulwanyisa Okuluma kw\'Obulwadde bw\'Okutaliisa',
             content: `
                 <ol>
@@ -372,7 +372,7 @@ const firstAidAdvice = {
         }
     },
     'hypothermia': {
-        english: {
+        en: {
             title: 'Hypothermia First Aid',
             content: `
                 <ol>
@@ -385,7 +385,7 @@ const firstAidAdvice = {
                 </ol>
             `
         },
-        luganda: {
+        lg: {
             title: 'Okulwanyisa Okubulwawo Obulwadde bw\'Okutaliisa',
             content: `
                 <ol>
@@ -403,9 +403,6 @@ const firstAidAdvice = {
 
 // Initialize when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize language selector
-    initLanguageSelector();
-
     // Initialize first aid functionality
     if (document.querySelector('.emergency-grid')) {
         initFirstAid();
@@ -419,37 +416,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize call doctor functionality
     initCallDoctor();
+
+    // Initialize language toggle functionality
+    initLanguageToggle();
 });
-
-// Language Selector Function
-function initLanguageSelector() {
-    const englishBtn = document.getElementById('lang-english');
-    const lugandaBtn = document.getElementById('lang-luganda');
-
-    englishBtn.addEventListener('click', () => {
-        currentLanguage = 'english';
-        englishBtn.classList.add('active');
-        lugandaBtn.classList.remove('active');
-        // Update displayed advice if any
-        const adviceDisplay = document.getElementById('advice-display');
-        if (adviceDisplay.style.display === 'block') {
-            const emergency = adviceDisplay.dataset.emergency; // Need to store this
-            if (emergency) showAdvice(emergency);
-        }
-    });
-
-    lugandaBtn.addEventListener('click', () => {
-        currentLanguage = 'luganda';
-        lugandaBtn.classList.add('active');
-        englishBtn.classList.remove('active');
-        // Update displayed advice if any
-        const adviceDisplay = document.getElementById('advice-display');
-        if (adviceDisplay.style.display === 'block') {
-            const emergency = adviceDisplay.dataset.emergency;
-            if (emergency) showAdvice(emergency);
-        }
-    });
-}
 
 // First Aid Functions
 function initFirstAid() {
@@ -463,16 +433,13 @@ function initFirstAid() {
 }
 
 function showAdvice(emergency) {
+    currentEmergency = emergency; // Track the current emergency
     const adviceDisplay = document.getElementById('advice-display');
     const titleElement = document.getElementById('advice-title');
     const contentElement = document.getElementById('advice-content');
 
-    const advice = firstAidAdvice[emergency][currentLanguage];
-    titleElement.textContent = advice.title;
-    contentElement.innerHTML = advice.content;
-
-    // Store the emergency type for language switching
-    adviceDisplay.dataset.emergency = emergency;
+    titleElement.textContent = firstAidAdvice[emergency][currentLanguage].title;
+    contentElement.innerHTML = firstAidAdvice[emergency][currentLanguage].content;
 
     adviceDisplay.style.display = 'block';
     adviceDisplay.scrollIntoView({ behavior: 'smooth' });
@@ -587,13 +554,21 @@ function initCallDoctor() {
     });
 }
 
-// Register service worker for PWA
-if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js')
-        .then(function(registration) {
-            console.log('Service Worker registered successfully:', registration);
-        })
-        .catch(function(error) {
-            console.log('Service Worker registration failed:', error);
+// Language Toggle Function
+function initLanguageToggle() {
+    const languageBtn = document.getElementById('language-toggle');
+    if (languageBtn) {
+        languageBtn.addEventListener('click', function() {
+            // Toggle language
+            currentLanguage = currentLanguage === 'en' ? 'lg' : 'en';
+
+            // Update button text
+            languageBtn.textContent = currentLanguage === 'en' ? 'Switch to Luganda' : 'Switch to English';
+
+            // If there's a currently displayed emergency, update it
+            if (currentEmergency) {
+                showAdvice(currentEmergency);
+            }
         });
+    }
 }

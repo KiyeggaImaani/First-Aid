@@ -1,7 +1,11 @@
-# TODO: Make First Aid Advice Bilingual (English and Luganda)
+# TODO: Add Language Selection Option
 
-- [ ] Translate all English advice content in script.js to Luganda
-- [ ] Update each emergency's content in firstAidAdvice object to include both languages (English steps followed by Luganda equivalents in quotes)
-- [ ] Ensure translations are accurate and culturally appropriate
-- [ ] Test the app by opening index.html and selecting different emergencies to verify bilingual display
-- [ ] Adjust formatting if needed for readability
+## Steps to Complete
+
+- [x] Restructure firstAidAdvice object in script.js to separate English and Luganda content
+- [x] Add language selector dropdown to index.html header
+- [x] Add CSS styles for the language selector in styles.css
+- [x] Implement language switching logic in script.js
+- [x] Update showAdvice function to display content based on selected language
+- [x] Test language switching functionality
+- [x] Ensure modal and other UI elements are language-agnostic or updated if needed
